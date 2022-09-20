@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "private":"true",
+  "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "webpack",
+    "app:watch": "webpack --watch",
+    "build": "webpack --mode=production --env NODE_ENV=production",
+    "app:dev": "webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +17,17 @@
     "rxjs": "^7.5.6"
   },
   "devDependencies": {
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "progress-webpack-plugin": "^1.0.16",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2",
+    "ts-loader": "^9.4.0",
     "typescript": "^4.8.3",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
   }
 }
