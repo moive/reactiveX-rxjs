@@ -2,6 +2,7 @@ const path = require("path");
 const ProgressPlugin = require("progress-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 let Env = "local";
 
@@ -63,12 +64,16 @@ let settings = {
         // },
         compress: true,
         port: 9000,
+        devMiddleware: {
+            writeToDisk: true
+        }
     },
     resolve: {
         enforceExtension: false,
         extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
     plugins: [
+        
         new ProgressPlugin({
             activeModules: false,
             entries: true,
@@ -82,6 +87,7 @@ let settings = {
             dependenciesCount: 10000,
             percentBy: null,
         }),
+        
         new HtmlWebpackPlugin({
             chunks: ["app"],
             template: "./src/html/index.html",
@@ -90,6 +96,12 @@ let settings = {
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+              { from: "src/assets", to: "assets" },
+            //   { from: "other", to: "public" },
+            ],
+          }),
     ],
     optimization: {
         splitChunks: {
