@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, Observer } from "rxjs";
 import "./sass/site.scss";
 
 const obs$ = new Observable<string>((subs) => {
@@ -16,8 +16,10 @@ const obs$ = new Observable<string>((subs) => {
 	subs.next("finished");
 });
 
-obs$.subscribe(
-	(value) => console.log("next", value),
-	(error) => console.error("error", error),
-	() => console.log("Completed")
-);
+const observer: Observer<any> = {
+	next: (value) => console.log("step [next]: ", value),
+	error: (error) => console.error("error [obs]: ", error),
+	complete: () => console.info("completed [obs]"),
+};
+
+obs$.subscribe(observer);
