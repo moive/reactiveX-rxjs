@@ -1,4 +1,4 @@
-# Proyecto inicial - Curso de RXJS
+# Proyecto de RXJS
 
 * Lo primero que debemos de hacer después de descargar el código es ejecutar el comando:
 
@@ -10,7 +10,14 @@ Ese comando descargará todos los módulos de node necesarios para ejecutar el p
 
 * Cuando termine de instalar los node_modules, entonces podermos ejecutar el proyecto de con el siguiente comando
 
+Para `dev` usar el siguiente comando:
 ```
-npm start
+npm app:dev
 ```
-Para que eso funcione, recuerden que deben de ejecutar ese comando en el mismo directorio donde se encuentra el ```package.json```
+
+Para `production` usar el siguiente comando:
+```
+npm build
+```
+
+Ejecutar  ejecutar ese comando en el mismo directorio donde se encuentra el ```package.json```
