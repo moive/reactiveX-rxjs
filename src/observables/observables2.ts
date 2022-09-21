@@ -15,16 +15,21 @@ const intervalo$ = new Observable<number>((subs) => {
 		console.log(count);
 	}, 1000);
 
+	setTimeout(() => {
+		subs.complete();
+	}, 2500);
+
 	return () => {
 		clearInterval(interval);
 		console.log("Destroyed interval");
 	};
 });
 
-const subs = intervalo$.subscribe((num) => console.log("Num: ", num));
+const subs = intervalo$.subscribe(observer);
 
 setTimeout(() => {
 	subs.unsubscribe();
-}, 5000);
+	console.log("Completed timeout");
+}, 3000);
 
 export default subs;
