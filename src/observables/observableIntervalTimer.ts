@@ -6,9 +6,13 @@ export default function () {
 		complete: () => console.log("complete"),
 	};
 
+	const today = new Date();
+	today.setSeconds(today.getSeconds() + 5);
+
 	const interval$ = interval(1000);
 	// const timer$ = timer(2000);
-	const timer$ = timer(2000, 1000);
+	// const timer$ = timer(2000, 1000);
+	const timer$ = timer(today); // timer wil run 5 seconds later
 
 	console.log("start");
 	// interval$.subscribe(observer);
