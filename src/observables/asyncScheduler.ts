@@ -9,4 +9,20 @@ export default function () {
 		firstname: "Moises",
 		lastname: "Velasquez",
 	});
+
+	const subs = asyncScheduler.schedule(
+		function (state) {
+			console.log("state", state);
+
+			this.schedule(state! + 1, 1000);
+
+			if (state == 10) this.unsubscribe();
+		},
+		3000,
+		0
+	);
+
+	setTimeout(() => {
+		subs.unsubscribe();
+	}, 6000);
 }
