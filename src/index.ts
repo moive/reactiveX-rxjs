@@ -6,6 +6,7 @@ import observableOf from "./observables/observableOf";
 import observableFromEvent from "./observables/observableFromEvent";
 import observableRange from "./observables/observableRange";
 import asyncScheduler from "./observables/asyncScheduler";
+import observableFromOf from "./observables/observableFromOf";
 
 // obs1$; //excercises obs1$
 // obs2$; //excercises obs1$
@@ -14,4 +15,5 @@ import asyncScheduler from "./observables/asyncScheduler";
 // observableFromEvent(); //function observables from events
 // observableRange(); //function observables from events
 // observableIntervalTimer(); //function observables Interval timer
-asyncScheduler(); // subscription asyncScheduler
+// asyncScheduler(); // subscription asyncScheduler
+observableFromOf(); //function observables from of
