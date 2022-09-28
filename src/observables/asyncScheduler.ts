@@ -22,7 +22,9 @@ export default function () {
 		0
 	);
 
-	setTimeout(() => {
-		subs.unsubscribe();
-	}, 6000);
+	// setTimeout(() => {
+	// 	subs.unsubscribe();
+	// }, 6000);
+
+	asyncScheduler.schedule(() => subs.unsubscribe(), 5000);
 }

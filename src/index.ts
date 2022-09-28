@@ -14,4 +14,4 @@ import asyncScheduler from "./observables/asyncScheduler";
 // observableFromEvent(); //function observables from events
 // observableRange(); //function observables from events
 // observableIntervalTimer(); //function observables Interval timer
-asyncScheduler(); // asyncScheduler
+asyncScheduler(); // subscription asyncScheduler
