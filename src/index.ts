@@ -10,6 +10,7 @@ import observableFromOf from "./observables/observableFromOf";
 
 import operatorsMap from "./observables/operatorsMap";
 import operatorsFilter from "./observables/operatorsFilter";
+import operatorsTap from "./observables/operatorsTap";
 
 // obs1$; //excercises obs1$
 // obs2$; //excercises obs1$
@@ -22,4 +23,5 @@ import operatorsFilter from "./observables/operatorsFilter";
 // observableFromOf(); //function observables from of
 
 // operatorsMap(); // operator map
-operatorsFilter(); // operator map
+// operatorsFilter(); // operator filter
+operatorsTap(); // operator tap
