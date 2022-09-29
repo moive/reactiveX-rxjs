@@ -8,5 +8,8 @@ export default function () {
 
 	const keyupCode$ = keyup$.pipe(map((event) => event.code));
 
+	const keyupChainings$ = keyup$.pipe(map((ev: any) => ev?.target?.baseURI));
+	keyup$.subscribe(console.log);
 	keyupCode$.subscribe((code) => console.log("map: ", code));
+	keyupChainings$.subscribe((cod) => console.log("baseURI: ", cod));
 }
