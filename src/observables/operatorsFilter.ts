@@ -1,4 +1,4 @@
-import { filter, range, from } from "rxjs";
+import { filter, range, from, fromEvent, map } from "rxjs";
 
 export default function () {
 	range(1, 5)
@@ -29,3 +29,10 @@ const person: Person[] = [
 from(person)
 	.pipe(filter((val) => val.type != "hero"))
 	.subscribe(console.log);
+
+const keyup$ = fromEvent<KeyboardEvent>(document, "keyup").pipe(
+	map((code) => code.code),
+	filter((key) => key === "Enter")
+);
+
+keyup$.subscribe(console.log);
