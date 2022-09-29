@@ -1,4 +1,4 @@
-import { fromEvent, map } from "rxjs";
+import { fromEvent, map, tap } from "rxjs";
 export default function () {
 	const texts = document.createElement("div");
 	texts.classList.add("container");
@@ -85,7 +85,9 @@ export default function () {
 	// scroll$.subscribe(console.log);
 
 	const progress$ = scroll$.pipe(
-		map((event) => calculateScrollbarPercentage(event))
+		// map((event) => calculateScrollbarPercentage(event))
+		map(calculateScrollbarPercentage),
+		tap(console.log)
 	);
 	progress$.subscribe((percentage) => {
 		// console.log(`${percentage}%`);
