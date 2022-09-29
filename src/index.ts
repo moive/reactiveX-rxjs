@@ -8,6 +8,8 @@ import observableRange from "./observables/observableRange";
 import asyncScheduler from "./observables/asyncScheduler";
 import observableFromOf from "./observables/observableFromOf";
 
+import operatorsMap from "./observables/operatorsMap";
+
 // obs1$; //excercises obs1$
 // obs2$; //excercises obs1$
 // obs3$(); //excercises obs3$
@@ -16,4 +18,6 @@ import observableFromOf from "./observables/observableFromOf";
 // observableRange(); //function observables from events
 // observableIntervalTimer(); //function observables Interval timer
 // asyncScheduler(); // subscription asyncScheduler
-observableFromOf(); //function observables from of
+// observableFromOf(); //function observables from of
+
+operatorsMap(); // operator map
