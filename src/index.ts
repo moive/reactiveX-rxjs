@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableReducer from "./observables/observableReduce";
+import observableScan from "./observables/observableScan";
 
-observableReducer();
+observableScan();
