@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import lab1 from "./laboratories/lab1";
+import observableReducer from "./observables/observableReduce";
 
-lab1();
+observableReducer();
