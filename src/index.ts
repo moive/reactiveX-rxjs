@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableScan from "./observables/observableScan";
+import observableTap from "./observables/observableTap";
 
-observableScan();
+observableTap();
