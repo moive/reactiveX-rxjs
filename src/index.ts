@@ -9,6 +9,7 @@ import asyncScheduler from "./observables/asyncScheduler";
 import observableFromOf from "./observables/observableFromOf";
 
 import operatorsMap from "./observables/operatorsMap";
+import operatorsFilter from "./observables/operatorsFilter";
 
 // obs1$; //excercises obs1$
 // obs2$; //excercises obs1$
@@ -20,4 +21,5 @@ import operatorsMap from "./observables/operatorsMap";
 // asyncScheduler(); // subscription asyncScheduler
 // observableFromOf(); //function observables from of
 
-operatorsMap(); // operator map
+// operatorsMap(); // operator map
+operatorsFilter(); // operator map
