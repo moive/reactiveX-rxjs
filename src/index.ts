@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import getJSON from "./ajax/getJSON";
+import ajaxPostPutDelete from "./ajax/ajaxPostPutDelete";
 
-getJSON();
+ajaxPostPutDelete();
