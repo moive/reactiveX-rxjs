@@ -33,6 +33,6 @@ const persons: Person[] = [
 from(persons)
 	.pipe(
 		map((v) => v),
-		distinctUntilKeyChanged("name")
+		distinctUntilChanged((p, n) => p.type.serie === n.type.serie)
 	)
 	.subscribe(console.log);
