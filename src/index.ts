@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import ajaxPostPutDelete from "./ajax/ajaxPostPutDelete";
+import flattening from "./ajax/flattening";
 
-ajaxPostPutDelete();
+flattening();
