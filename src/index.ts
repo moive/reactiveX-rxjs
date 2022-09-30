@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableSample from "./observables/observableSample";
+import observableAuditTime from "./observables/observableAuditTime";
 
-observableSample();
+observableAuditTime();
