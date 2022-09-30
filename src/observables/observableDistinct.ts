@@ -1,4 +1,11 @@
-import { distinct, of, from, distinctUntilChanged } from "rxjs";
+import {
+	distinct,
+	of,
+	from,
+	distinctUntilChanged,
+	distinctUntilKeyChanged,
+	map,
+} from "rxjs";
 export default function () {
 	const numbers$ = of(1, 1, 1, "1", 2, 2, 3, 3, 3, 4, 4, 1, "1", 3);
 
@@ -7,19 +14,25 @@ export default function () {
 
 interface Person {
 	name: string;
+	type: {
+		serie: string;
+	};
 }
 
 const persons: Person[] = [
-	{ name: "Megaman" },
-	{ name: "Megaman" },
-	{ name: "Zero" },
-	{ name: "Dr. Wily" },
-	{ name: "X " },
-	{ name: "X " },
-	{ name: "Zero" },
-	{ name: "Dr. Wily" },
+	{ name: "Megaman", type: { serie: "B" } },
+	{ name: "Megaman", type: { serie: "C" } },
+	{ name: "Zero", type: { serie: "A" } },
+	{ name: "Dr. Wily", type: { serie: "A" } },
+	{ name: "X ", type: { serie: "D" } },
+	{ name: "X ", type: { serie: "D" } },
+	{ name: "Zero", type: { serie: "C" } },
+	{ name: "Dr. Wily", type: { serie: "C" } },
 ];
 
 from(persons)
-	.pipe(distinctUntilChanged((prev, next) => prev.name === next.name))
+	.pipe(
+		map((v) => v),
+		distinctUntilKeyChanged("name")
+	)
 	.subscribe(console.log);
