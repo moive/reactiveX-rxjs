@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableDistinct from "./observables/observableDistinct";
+import observableDebounceTime from "./observables/observableDebounceTime";
 
-observableDistinct();
+observableDebounceTime();
