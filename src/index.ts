@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableTakeUntil from "./observables/observableTakeUntil";
+import observableDistinct from "./observables/observableDistinct";
 
-observableTakeUntil();
+observableDistinct();
