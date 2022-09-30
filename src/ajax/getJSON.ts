@@ -1,4 +1,4 @@
-import { of, catchError } from "rxjs";
+import { of, catchError, Observer } from "rxjs";
 import { ajax, AjaxError } from "rxjs/ajax";
 
 export default function () {
@@ -26,11 +26,11 @@ export default function () {
 			users: [],
 		});
 	};
-
-	obs$.pipe(catchError(handleError)).subscribe((data) =>
-		console.log("getJSON", data)
-	);
-	obs2$
-		.pipe(catchError(handleError))
-		.subscribe((data) => console.log("ajax", data));
+	const observer: Observer<any> = {
+		next: (val: any) => console.log("next: ", val),
+		error: (err: any) => console.warn("error: ", err),
+		complete: () => console.log("complete"),
+	};
+	obs$.subscribe(observer);
+	obs2$.subscribe(observer);
 }
