@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableAuditTime from "./observables/observableAuditTime";
+import fetchApi from "./ajax/fetchApi";
 
-observableAuditTime();
+fetchApi();
