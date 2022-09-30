@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableFirst from "./observables/observableFirst";
+import observableTakeWhile from "./observables/observableTakeWhile";
 
-observableFirst();
+observableTakeWhile();
