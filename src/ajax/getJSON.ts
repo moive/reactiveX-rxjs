@@ -20,7 +20,8 @@ export default function () {
 	});
 
 	const handleError = (res: AjaxError) => {
-		console.warn("Error: ", res.message);
+		console.warn("Error handle-error: ", res.message);
+		// throw new Error(res.message);
 		return of({
 			ok: false,
 			users: [],
@@ -28,9 +29,9 @@ export default function () {
 	};
 	const observer: Observer<any> = {
 		next: (val: any) => console.log("next: ", val),
-		error: (err: any) => console.warn("error: ", err),
+		error: (err: any) => console.warn("error subs: ", err),
 		complete: () => console.log("complete"),
 	};
-	obs$.subscribe(observer);
-	obs2$.subscribe(observer);
+	obs$.pipe(catchError(handleError)).subscribe(observer);
+	obs2$.pipe(catchError(handleError)).subscribe(observer);
 }
