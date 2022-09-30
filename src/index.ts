@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import observableThrottleTime from "./observables/observableThrottleTime";
+import observableSampleTime from "./observables/observableSampleTime";
 
-observableThrottleTime();
+observableSampleTime();
