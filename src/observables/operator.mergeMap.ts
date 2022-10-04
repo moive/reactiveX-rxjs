@@ -1,4 +1,13 @@
-import { mergeMap, of, interval, take, map, fromEvent, takeUntil } from "rxjs";
+import {
+	mergeMap,
+	of,
+	interval,
+	take,
+	map,
+	fromEvent,
+	takeUntil,
+	last,
+} from "rxjs";
 
 export default function () {
 	const letters$ = of("a", "b", "c");
@@ -22,6 +31,6 @@ export default function () {
 	const interval$ = interval(100);
 
 	mousedown$
-		.pipe(mergeMap(() => interval$.pipe(takeUntil(mouseup$))))
+		.pipe(mergeMap(() => interval$.pipe(takeUntil(mouseup$), last())))
 		.subscribe(console.log);
 }
