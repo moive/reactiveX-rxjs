@@ -11,6 +11,7 @@ import {
 } from "rxjs";
 import { GithubUser } from "../interfaces/github-user.interface";
 import { GithubUsersResp } from "../interfaces/github-users.interface";
+import { interval } from "rxjs";
 export default function () {
 	const textInput = document.createElement("input");
 	const orderList = document.createElement("ol");
@@ -58,6 +59,16 @@ export default function () {
 		.pipe(
 			map((ev) => (ev.target as HTMLInputElement).value),
 			switchMap((text) => ajax.getJSON(url + text))
+		)
+		.subscribe(console.log);
+
+	const click$ = fromEvent(document, "click");
+	const interval$ = interval(1000);
+
+	click$
+		.pipe(
+			// mergeMap(() => interval$)
+			switchMap(() => interval$)
 		)
 		.subscribe(console.log);
 }
