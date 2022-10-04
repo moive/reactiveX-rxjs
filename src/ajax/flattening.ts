@@ -1,5 +1,13 @@
 import { ajax } from "rxjs/ajax";
-import { debounceTime, fromEvent, map, mergeAll, Observable, tap } from "rxjs";
+import {
+	debounceTime,
+	fromEvent,
+	map,
+	mergeAll,
+	Observable,
+	tap,
+	mergeMap,
+} from "rxjs";
 import { GithubUser } from "../interfaces/github-user.interface";
 import { GithubUsersResp } from "../interfaces/github-users.interface";
 export default function () {
@@ -37,10 +45,9 @@ export default function () {
 			map<KeyboardEvent, string>(
 				(ev) => (ev.target as HTMLInputElement).value
 			),
-			map<string, Observable<GithubUsersResp>>((text) =>
+			mergeMap<string, Observable<GithubUsersResp>>((text) =>
 				ajax.getJSON(`https://api.github.com/search/users?q=${text}`)
 			),
-			mergeAll<Observable<GithubUsersResp>>(),
 			map<GithubUsersResp, GithubUser[]>(({ items }) => items)
 		)
 		.subscribe(showUsers);

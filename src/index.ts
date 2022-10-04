@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import mergeMap from "./observables/operator.mergeMap";
+import flattening from "./ajax/flattening";
 
-mergeMap();
+flattening();
