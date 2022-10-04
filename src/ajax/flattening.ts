@@ -7,6 +7,7 @@ import {
 	Observable,
 	tap,
 	mergeMap,
+	switchMap,
 } from "rxjs";
 import { GithubUser } from "../interfaces/github-user.interface";
 import { GithubUsersResp } from "../interfaces/github-users.interface";
@@ -39,16 +40,24 @@ export default function () {
 
 	const input$ = fromEvent<KeyboardEvent>(textInput, "keyup");
 
+	input$.pipe(
+		debounceTime<KeyboardEvent>(500),
+		map<KeyboardEvent, string>(
+			(ev) => (ev.target as HTMLInputElement).value
+		),
+		mergeMap<string, Observable<GithubUsersResp>>((text) =>
+			ajax.getJSON(`https://api.github.com/search/users?q=${text}`)
+		),
+		map<GithubUsersResp, GithubUser[]>(({ items }) => items)
+	);
+	// .subscribe(showUsers);
+
+	const url = "https://httpbin.org/delay/1?arg=";
+
 	input$
 		.pipe(
-			debounceTime<KeyboardEvent>(500),
-			map<KeyboardEvent, string>(
-				(ev) => (ev.target as HTMLInputElement).value
-			),
-			mergeMap<string, Observable<GithubUsersResp>>((text) =>
-				ajax.getJSON(`https://api.github.com/search/users?q=${text}`)
-			),
-			map<GithubUsersResp, GithubUser[]>(({ items }) => items)
+			map((ev) => (ev.target as HTMLInputElement).value),
+			switchMap((text) => ajax.getJSON(url + text))
 		)
-		.subscribe(showUsers);
+		.subscribe(console.log);
 }
