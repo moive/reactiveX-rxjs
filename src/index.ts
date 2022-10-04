@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import concatMap from "./observables/operator.concatMap";
+import exhaustMap from "./observables/operator.exhaustMap";
 
-concatMap();
+exhaustMap();
