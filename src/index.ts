@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import flattening from "./ajax/flattening";
+import concatMap from "./observables/operator.concatMap";
 
-flattening();
+concatMap();
