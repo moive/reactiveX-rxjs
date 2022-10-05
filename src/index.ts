@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import exhaustMap from "./observables/operator.exhaustMap";
+import lab from "./laboratories/lab2";
 
-exhaustMap();
+lab();
