@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import startEndWith from "./observables/operator.startEndWith";
+import lab3 from "./laboratories/lab3";
 
-startEndWith();
+lab3();
