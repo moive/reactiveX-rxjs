@@ -1,4 +1,4 @@
-import { fromEvent, tap, map, mergeMap } from "rxjs";
+import { fromEvent, tap, map, mergeMap, catchError, of } from "rxjs";
 import { ajax } from "rxjs/ajax";
 export default function () {
 	const link = document.createElement("link");
@@ -41,9 +41,10 @@ export default function () {
 
 	// Helper
 	const requestHttpLogin = (user: any) =>
-		ajax
-			.post("https://reqres.in/api/login?delay=1", user)
-			.pipe(map((e: any) => e.response.token));
+		ajax.post("https://reqres.in/api/login?delay=1", user).pipe(
+			map((e: any) => e.response.token),
+			catchError((err) => of("xxx"))
+		);
 
 	// streams
 	const submitForm$ = fromEvent<Event>(form, "submit");
