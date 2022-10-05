@@ -1,4 +1,13 @@
-import { fromEvent, tap, map, mergeMap, catchError, of } from "rxjs";
+import {
+	fromEvent,
+	tap,
+	map,
+	mergeMap,
+	catchError,
+	of,
+	switchMap,
+	exhaustMap,
+} from "rxjs";
 import { ajax } from "rxjs/ajax";
 export default function () {
 	const link = document.createElement("link");
@@ -55,7 +64,7 @@ export default function () {
 				email: ev.target[0].value,
 				password: ev.target[1].value,
 			})),
-			mergeMap(requestHttpLogin)
+			exhaustMap(requestHttpLogin)
 		)
 		.subscribe((token) => console.log(token));
 }
