@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import functionMerge from "./observables/functionMerge";
+import functionCombineLatest from "./observables/functionCombineLatest";
 
-functionMerge();
+functionCombineLatest();
