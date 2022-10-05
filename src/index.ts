@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import lab3 from "./laboratories/lab3";
+import functionConcat from "./observables/functionConcat";
 
-lab3();
+functionConcat();
