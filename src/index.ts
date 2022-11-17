@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import capitalize from "./exercices/capitalize";
+import reduce from "./exercices/reduce";
 
-capitalize();
+reduce();
