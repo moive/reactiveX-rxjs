@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import functionCombineLatest from "./observables/functionCombineLatest";
+import forkJoin from "./observables/forkJoin";
 
-functionCombineLatest();
+forkJoin();
