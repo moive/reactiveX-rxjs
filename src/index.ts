@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import random from "./exercices/random";
+import countdown from "./exercices/countdown";
 
-random();
+countdown();
