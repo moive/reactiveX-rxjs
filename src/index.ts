@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import countdown from "./exercices/countdown";
+import combine from "./exercices/combine";
 
-countdown();
+combine();
