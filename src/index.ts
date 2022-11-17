@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import reduce from "./exercices/reduce";
+import random from "./exercices/random";
 
-reduce();
+random();
