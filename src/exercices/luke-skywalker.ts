@@ -43,14 +43,13 @@ export default function () {
 	// ==================================================================
 
 	// Realizar el llamado al URL para obtener a Luke Skywalker
-	getRequest(`${SW_API}/people/1`)
-		.pipe(
-			// first response
-			// switchMap((r) => getRequest(r.species[0]))
 
-			switchMap((res) => zip(of(res), getRequest(`${SW_API}/species/1`))),
-			map(([person, species]) => ({ person, species }))
-		)
-		.subscribe(console.log); // ==
+	const luke$ = getRequest(`${SW_API}/people/1`);
+	const human$ = getRequest(`${SW_API}/species/1`);
+
+	zip(luke$, human$)
+		.pipe(map(([person, specie]) => ({ person, specie })))
+		.subscribe(console.log);
+
 	// =======================================
 }
