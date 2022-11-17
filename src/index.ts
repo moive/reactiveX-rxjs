@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import forkJoin from "./observables/forkJoin";
+import capitalize from "./exercices/capitalize";
 
-forkJoin();
+capitalize();
