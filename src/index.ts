@@ -1,5 +1,5 @@
 import "./sass/site.scss";
 
-import combine from "./exercices/combine";
+import lukeskywalker from "./exercices/luke-skywalker";
 
-combine();
+lukeskywalker();
